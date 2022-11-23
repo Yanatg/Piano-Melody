@@ -24,18 +24,18 @@ while menu and isinstance(menu, str):
             stage.rec_screen()
             name = stage.ask_name_r()
 
-            if name:    # print music's name
-                print(f"music's title {name}\n{'-----'*12}")
-            else:
-                print("Aren't you really going to record the music? :(")
+            try:
+                while len(name) >= 15 or not name:
+                    if len(name) >= 15:
+                        print(f"Music's name must be less than 15 characters.\n{'-----'*12}")
+                    if not name:
+                        print(f"Your music must have a name.\nPlease try again\n{'-----'*12}")
+                    name = stage.ask_name_r()
+            except TypeError:
+                print("Aren't you really going to use my piano? :(")
                 quit()
 
-            while len(name) >= 15:
-                print(f"Music's name must be less than 15 characters.\n{'-----'*12}")
-                name = stage.ask_name_r()
-            while not name:
-                print(f"Your music must have a name.\nPlease try again\n{'-----'*12}")
-                name = stage.ask_name_r()
+            print(f"music's title {name}\n{'-----' * 12}")
             music.play_current_sound()
 
             m = Note(music.note_list)
