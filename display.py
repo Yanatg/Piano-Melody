@@ -3,6 +3,7 @@ from data import Data
 
 
 class Display:
+    """ for the display part """
 
     def __init__(self):
         self.stage = turtle.Screen()
@@ -27,40 +28,45 @@ class Display:
         self.b_key.hideturtle()
 
     def init_screen(self):
+        """ initialize the screen """
         self.stage.setup(900, 600)
         self.stage.bgpic('pic/menu_bg.gif')
         self.stage.title('Piano Melody')
 
     def menu(self):
+        """ menu input """
         self.init_screen()
         menu = self.stage.textinput('Which menu would you like to do?',
                                     'record / practice / play music"')
         return menu
 
     def exit_msg(self, color):
+        """ exit msg """
         self.painter.color(color)
         self.painter.penup()
         self.painter.goto(0, -260)
         self.painter.write('click to exit', align='center', font=("Arial", 12, "normal"))
 
     def ask_name_r(self):
-        # self.init_screen()
+        """ ask name for record menu """
         name = self.stage.textinput("music's name",
                                     "What would you like your music to be called?")
         return name
 
     def ask_name_pm(self):
-        # self.init_screen()
+        """ ask name for the music to play """
         name = self.stage.textinput("music's name",
                                     "May I ask for the music's name you want to listen?")
         return name
 
     def ask_name_again_pm(self):
+        """ ask name for the music to play again """
         name = self.stage.textinput("music's name",
                                     "May I ask you again for the music's name you want to listen?")
         return name
 
     def show_music_list(self):
+        """ show the list of all musics """
         self.stage.clear()
         self.stage.bgcolor('pink')
         self.painter.penup()
@@ -71,11 +77,9 @@ class Display:
         # data = all_music.read()    # {'hbd': ['c', 'c', 'd', 'c', 'f', 'e']}
 
         data = all_music.read()
-        # except TypeError:
-        #     print("None of the musics have ever been recorded.")
-        # else:
+
         try:
-            for index, music in enumerate(data):
+            for _, _ in enumerate(data):
                 pass
         except TypeError:
             print("None of the musics have ever been recorded.\nTry to record the music first.")
@@ -100,6 +104,7 @@ class Display:
         self.painter.hideturtle()
 
     def pm_screen(self):
+        """ setting up the play music screen """
         self.painter.clear()
         self.painter.hideturtle()
         self.stage.clear()
@@ -107,14 +112,13 @@ class Display:
         self.exit_msg('black')
 
     def prac_screen(self):
+        """ setting up the practice screen """
         self.stage.bgpic('pic/key_bg.gif')
         self.stage.bgcolor('black')
         self.exit_msg('white')
 
     def rec_screen(self):
+        """ setting up the record screen """
         self.stage.bgpic('pic/key_bg.gif')
         self.stage.bgcolor('black')
         self.exit_msg('white')
-
-# d = Display()
-# print(d.show_music_list())

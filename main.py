@@ -1,8 +1,9 @@
+import sys
+
 from note import Note
 from sound import Sound
 from data import Data
 from display import Display
-from turtle import textinput
 
 stage = Display()
 
@@ -32,7 +33,7 @@ while isinstance(menu, str):
                     name = stage.ask_name_r()
             except TypeError:
                 print("Aren't you really going to use my piano? :(")
-                quit()
+                sys.exit()
 
             print(f"music's title {name}\n{'-----' * 12}")
             music.play_current_sound()
@@ -45,7 +46,7 @@ while isinstance(menu, str):
             print(f"Your music is wonderful. Thank you for using our piano."
                   f"\nYou can now listen to your recorded music."
                   f"\n{'-----'*12}")
-            quit()
+            sys.exit()
 
         elif menu.lower() in play_music:
             print(f"You choose to play the music. ~Enjoy~\n{'-----' * 12}")
@@ -61,7 +62,7 @@ while isinstance(menu, str):
                           f"\n{'-----'*12}")
                     music_name = stage.ask_name_again_pm()
             except TypeError:
-                quit()
+                sys.exit()
             else:
                 while music_name not in music_to_play:
                     print(f"There is no list of songs you want to play in our system."
@@ -74,19 +75,18 @@ while isinstance(menu, str):
 
             print(f"The music is over, Hope you're happy :)"
                   f"\n{'-----'*12}")
-            quit()
+            sys.exit()
 
         elif menu.lower() in practice:
             print(f"You choose to practice.\n{'-----'*12}")
             stage.prac_screen()
             music.play_current_sound()
             print('You practiced well.\nYou can record your own music if you want!')
-            quit()
+            sys.exit()
 
     print(f'You did not choose any menu or choose the invalid one.'
           f'\nPlease try again'
           f"\n{'-----'*12}")
-    menu = textinput("Which menu would you like to do?",
-                     "record / practice / play music")
+    menu = stage.menu()
 
 print("Aren't you really going to use my piano? :(")
