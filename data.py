@@ -26,8 +26,11 @@ class Data:
             with open('database.json', 'r') as data_file:
                 data = json.load(data_file)
         except FileNotFoundError:
-            # print('No data File Found')
             pass
         else:
             return data
 
+
+# m_n = Data({'test': ['cc', 'c', 'd', '', 'e']})
+# m_n.write()
+# print(Data.read())
