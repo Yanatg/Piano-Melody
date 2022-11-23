@@ -2,7 +2,6 @@ from note import Note
 from sound import Sound
 from data import Data
 from display import Display
-
 from turtle import textinput
 
 stage = Display()
@@ -14,7 +13,7 @@ record = ['record', 'r']
 practice = ['practice', 'p']
 play_music = ['play music', 'playmusic', 'pm', 'm']
 
-while menu and isinstance(menu, str):
+while isinstance(menu, str):
 
     while menu.lower() in record or menu.lower() in practice or menu.lower() in play_music:
 
@@ -79,19 +78,15 @@ while menu and isinstance(menu, str):
 
         elif menu.lower() in practice:
             print(f"You choose to practice.\n{'-----'*12}")
-
-            # stage.init_screen()
             stage.prac_screen()
             music.play_current_sound()
-
             print('You practiced well.\nYou can record your own music if you want!')
             quit()
 
-    else:
-        print(f'You did not choose any menu or choose the invalid one.'
-              f'\nPlease try again'
-              f"\n{'-----'*12}")
-        menu = textinput("Which menu would you like to do?",
-                         "record / practice / play music")
+    print(f'You did not choose any menu or choose the invalid one.'
+          f'\nPlease try again'
+          f"\n{'-----'*12}")
+    menu = textinput("Which menu would you like to do?",
+                     "record / practice / play music")
 
 print("Aren't you really going to use my piano? :(")
