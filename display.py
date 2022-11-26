@@ -74,9 +74,8 @@ class Display:
         self.painter.write('Music list', align='center', font=('Times New Roman', 20, 'bold'))
 
         all_music = Data({})
-        # data = all_music.read()    # {'hbd': ['c', 'c', 'd', 'c', 'f', 'e']}
 
-        data = all_music.read()
+        data = all_music.read()     # {'hbd': ['c', 'c', 'd', 'c', 'f', 'e']}
 
         try:
             for _, _ in enumerate(data):
