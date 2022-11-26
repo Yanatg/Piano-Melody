@@ -5,7 +5,7 @@ from display import Display
 
 class Note:
     """ manage the music and notes """
-    def __init__(self, note_list):
+    def __init__(self, note_list=None):
         self.note_l = note_list
         self.dict_note = Data.read()
 
