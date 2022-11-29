@@ -16,6 +16,20 @@ play_music = ['play music', 'playmusic', 'pm', 'm']
 
 while isinstance(menu, str):
 
+    print('Welcome to Piano Melody')
+    print(' _______________________________________\n'
+          '|  | | | |  |  | | | | | |  |  | | | |  |\n'
+          '|  | | | |  |  | | | | | |  |  | | | |  |\n'
+          '|  | | | |  |  | | | | | |  |  | | | |  |\n'
+          '|  |_| |_|  |  |_| |_| |_|  |  |_| |_|  |\n'
+          '|   |   |   |   |   |   |   |   |   |   |\n'
+          '|   |   |   |   |   |   |   |   |   |   |\n'
+          '|___|___|___|___|___|___|___|___|___|___|\n')
+    print('You have three menus to choose\n'
+          'record\n'
+          'practice\n'
+          'play music\n')
+
     while menu.lower() in record or menu.lower() in practice or menu.lower() in play_music:
 
         if menu.lower() in record:
@@ -27,9 +41,9 @@ while isinstance(menu, str):
             try:
                 while len(name) >= 15 or not name:
                     if len(name) >= 15:
-                        print(f"Music's name must be less than 15 characters.\n{'-----'*12}")
+                        print(f"Music's name must be less than 15 characters.\n{'-----' * 12}")
                     if not name:
-                        print(f"Your music must have a name.\nPlease try again\n{'-----'*12}")
+                        print(f"Your music must have a name.\nPlease try again\n{'-----' * 12}")
                     name = stage.ask_name_r()
             except TypeError:
                 print("Aren't you really going to use my piano? :(")
@@ -51,7 +65,8 @@ while isinstance(menu, str):
         elif menu.lower() in play_music:
             print(f"You choose to play the music. ~Enjoy~\n{'-----' * 12}")
             stage.show_music_list()
-            music_name = stage.ask_name_pm()
+            music_name = input("music's name\n"
+                               "May I ask for the music's name you want to listen?: ")
             stage.pm_screen()
 
             music_to_play = Data.read()
@@ -60,7 +75,9 @@ while isinstance(menu, str):
                     print(f"Sorry, The music you want doesn't seem to be in the data."
                           f"\nPlease try again, Ensure the song you entered is correct."
                           f"\n{'-----'*12}")
-                    music_name = stage.ask_name_again_pm()
+                    # music_name = stage.ask_name_again_pm()
+                    music_name = input("music's name\n"
+                                       "May I ask you again for the music's name you want to listen?")
             except TypeError:
                 sys.exit()
             else:
@@ -68,7 +85,9 @@ while isinstance(menu, str):
                     print(f"There is no list of songs you want to play in our system."
                           f"\nPlease try one more time."
                           f"\n\n{'-----'*12}")
-                    music_name = stage.ask_name_again_pm()
+                    # music_name = input('name to play: ')
+                    music_name = input("music's name\n"
+                                       "May I ask you again for the music's name you want to listen?")
 
             note = Note()
             note.play_music(music_name)

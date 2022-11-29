@@ -3,8 +3,9 @@ import json
 
 class Data:
     """ read/write data """
-    def __init__(self, music: dict):
+    def __init__(self, music=None):
         self.music = music
+        self.d_note = self.read()
 
     def write(self):
         """ store the music's name with notes to database """

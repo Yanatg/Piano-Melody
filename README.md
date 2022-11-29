@@ -49,7 +49,7 @@ There are four classes in this program.
 
 This is the program's class diagram
 
-![UML](Piano%20Melody%20UML.png)
+![UML](Piano Melody UML.png)
 
 ### Code structure
 This program consists of 5 python files and 1 json file, which is the music database.
