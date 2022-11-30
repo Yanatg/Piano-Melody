@@ -1,4 +1,5 @@
 import sys
+from colorama import Fore, Style
 
 from note import Note
 from sound import Sound
@@ -15,9 +16,11 @@ practice = ['practice', 'p']
 play_music = ['play music', 'playmusic', 'pm', 'm']
 
 while isinstance(menu, str):
-
-    print('Welcome to Piano Melody')
-    print(' _______________________________________\n'
+    print()
+    print(Fore.LIGHTYELLOW_EX + '         Welcome to Piano Melody!')
+    print(Style.RESET_ALL)
+    print(Fore.LIGHTCYAN_EX +
+          ' _______________________________________\n'
           '|  | | | |  |  | | | | | |  |  | | | |  |\n'
           '|  | | | |  |  | | | | | |  |  | | | |  |\n'
           '|  | | | |  |  | | | | | |  |  | | | |  |\n'
@@ -25,11 +28,13 @@ while isinstance(menu, str):
           '|   |   |   |   |   |   |   |   |   |   |\n'
           '|   |   |   |   |   |   |   |   |   |   |\n'
           '|___|___|___|___|___|___|___|___|___|___|\n')
-    print('You have three menus to choose\n'
+    print(Style.RESET_ALL)
+    print('You have three menus to choose')
+    print(Fore.LIGHTGREEN_EX +
           'record\n'
           'practice\n'
           'play music\n')
-
+    print(Style.RESET_ALL)
     while menu.lower() in record or menu.lower() in practice or menu.lower() in play_music:
 
         if menu.lower() in record:
@@ -46,7 +51,7 @@ while isinstance(menu, str):
                         print(f"Your music must have a name.\nPlease try again\n{'-----' * 12}")
                     name = stage.ask_name_r()
             except TypeError:
-                print("Aren't you really going to use my piano? :(")
+                print(Fore.LIGHTMAGENTA_EX + "Aren't you really going to use my piano? :(")
                 sys.exit()
 
             print(f"music's title {name}\n{'-----' * 12}")
@@ -66,7 +71,8 @@ while isinstance(menu, str):
             print(f"You choose to play the music. ~Enjoy~\n{'-----' * 12}")
             stage.show_music_list()
             music_name = input("music's name\n"
-                               "May I ask for the music's name you want to listen?: ")
+                               "May I ask for the music's name you want to listen?\n"
+                               "Enter here: ")
             stage.pm_screen()
 
             music_to_play = Data.read()
@@ -77,7 +83,8 @@ while isinstance(menu, str):
                           f"\n{'-----'*12}")
                     # music_name = stage.ask_name_again_pm()
                     music_name = input("music's name\n"
-                                       "May I ask you again for the music's name you want to listen?")
+                                       "May I ask you again for the music's name you want to listen?\n"
+                                       "Enter here: ")
             except TypeError:
                 sys.exit()
             else:
@@ -87,7 +94,8 @@ while isinstance(menu, str):
                           f"\n\n{'-----'*12}")
                     # music_name = input('name to play: ')
                     music_name = input("music's name\n"
-                                       "May I ask you again for the music's name you want to listen?")
+                                       "May I ask you again for the music's name you want to listen?\n"
+                                       "Enter here: ")
 
             note = Note()
             note.play_music(music_name)
@@ -103,9 +111,10 @@ while isinstance(menu, str):
             print('You practiced well.\nYou can record your own music if you want!')
             sys.exit()
 
-    print(f'You did not choose any menu or choose the invalid one.'
+    print(Fore.LIGHTRED_EX +
+          f'You did not choose any menu or choose the invalid one.'
           f'\nPlease try again'
           f"\n{'-----'*12}")
     menu = stage.menu()
 
-print("Aren't you really going to use my piano? :(")
+print(Fore.LIGHTMAGENTA_EX + "Aren't you really going to use my piano? :(")
