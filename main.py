@@ -81,7 +81,6 @@ while isinstance(menu, str):
                     print(f"Sorry, The music you want doesn't seem to be in the data."
                           f"\nPlease try again, Ensure the song you entered is correct."
                           f"\n{'-----'*12}")
-                    # music_name = stage.ask_name_again_pm()
                     music_name = input("music's name\n"
                                        "May I ask you again for the music's name you want to listen?\n"
                                        "Enter here: ")
@@ -92,7 +91,6 @@ while isinstance(menu, str):
                     print(f"There is no list of songs you want to play in our system."
                           f"\nPlease try one more time."
                           f"\n\n{'-----'*12}")
-                    # music_name = input('name to play: ')
                     music_name = input("music's name\n"
                                        "May I ask you again for the music's name you want to listen?\n"
                                        "Enter here: ")
