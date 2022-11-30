@@ -31,6 +31,7 @@ There are 4 Python modules & libraries required in the program.
 * [`json`](https://docs.python.org/3/library/json.html?highlight=json#module-json): used for the data part.
 * [`time`](https://docs.python.org/3.11/library/time.html): used for the sound part.
 * [`playsound`](https://pypi.org/project/playsound/): used for playing sound.
+* [`colorama`](https://pypi.org/project/colorama/): used for the output console.
 Please download font Times New Roman for a better experience.
 
 ### Program design
