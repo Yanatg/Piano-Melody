@@ -9,7 +9,6 @@ class Display:
         self.stage = turtle.Screen()
         self.painter = turtle.Turtle()
         self.painter.hideturtle()
-
         self.key = turtle.Turtle()
         self.key.hideturtle()
         self.key.penup()
@@ -51,18 +50,6 @@ class Display:
         """ ask name for record menu """
         name = self.stage.textinput("music's name",
                                     "What would you like your music to be called?")
-        return name
-
-    def ask_name_pm(self):
-        """ ask name for the music to play """
-        name = self.stage.textinput("music's name",
-                                    "May I ask for the music's name you want to listen?")
-        return name
-
-    def ask_name_again_pm(self):
-        """ ask name for the music to play again """
-        name = self.stage.textinput("music's name",
-                                    "May I ask you again for the music's name you want to listen?")
         return name
 
     def show_music_list(self):
