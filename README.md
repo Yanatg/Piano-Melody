@@ -25,7 +25,7 @@ Players can record the same song over and over again. The recorded sound will be
 
 ### Program’s requirement
 
-There are 4 Python modules & libraries required in the program.
+There are 6 Python modules & libraries required in the program.
 * [`turtle`](https://docs.python.org/3/library/turtle.html): used for the display part.
 * [`sys`](https://docs.python.org/3.11/library/sys.html): used to exit the program.
 * [`json`](https://docs.python.org/3/library/json.html?highlight=json#module-json): used for the data part.
